@@ -1,13 +1,11 @@
 import { useState } from 'react'
 import './App.css'
-import { searchSongs, GeniusSearchResult } from './services/genius'
-
-// YouTube icon component using SVG
-const YouTubeIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="red">
-    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-  </svg>
-)
+import { searchSongs } from './services/genius'
+import { GeniusSearchResult } from './types/genius'
+import { SearchBar } from './components/Search/SearchBar'
+import { SongCard } from './components/Card/SongCard'
+import './styles/layout.css'
+import './styles/components.css'
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -31,32 +29,16 @@ function App() {
     }
   }
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      handleSearch()
-    }
-  }
-
   return (
     <div className="container">
       <h1>Lyrics Search</h1>
-      <div className="search-container">
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          onKeyPress={handleKeyPress}
-          placeholder="Enter lyrics or song title..."
-          className="search-input"
-        />
-        <button 
-          onClick={handleSearch}
-          disabled={isLoading}
-          className="search-button"
-        >
-          {isLoading ? 'Searching...' : 'Search'}
-        </button>
-      </div>
+      
+      <SearchBar 
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        handleSearch={handleSearch}
+        isLoading={isLoading}
+      />
 
       {error && (
         <div className="error-message">
@@ -68,24 +50,8 @@ function App() {
         <div className="results-container">
           <h2>Search Results</h2>
           <div className="results-grid">
-            {results.map((result, index) => (
-              <div key={index} className="result-card">
-                <img src={result.thumbnail} alt={result.title} className="song-thumbnail" />
-                <div className="song-info">
-                  <h3>{result.title}</h3>
-                  <p className="artist">{result.artist}</p>
-                  <p className="lyrics-snippet">{result.lyrics_snippet}</p>
-                  <a 
-                    href={result.youtubeSearchUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="youtube-button"
-                    title="Search on YouTube"
-                  >
-                    <YouTubeIcon />
-                  </a>
-                </div>
-              </div>
+            {results.map((song, index) => (
+              <SongCard key={index} song={song} />
             ))}
           </div>
         </div>

@@ -1,13 +1,6 @@
-const RAPID_API_URL = "https://genius-song-lyrics1.p.rapidapi.com/search";
+import { GeniusSearchResult } from '../types/genius';
 
-export interface GeniusSearchResult {
-  title: string;
-  artist: string;
-  lyrics_snippet: string;
-  url: string;
-  thumbnail: string;
-  youtubeSearchUrl: string;
-}
+const RAPID_API_URL = "https://genius-song-lyrics1.p.rapidapi.com/search";
 
 function generateYoutubeSearchUrl(title: string, artist: string): string {
   const searchQuery = `${title} ${artist}`.replace(/[^\w\s]/gi, '');
