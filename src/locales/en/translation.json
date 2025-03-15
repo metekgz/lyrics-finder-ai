@@ -19,7 +19,9 @@
     "description": "Please enter your Genius API token to start searching for lyrics",
     "placeholder": "Your API Token",
     "submit": "Save Token",
+    "validating": "Validating...",
     "error": "Please enter a valid token",
+    "invalid": "Invalid API token. Please check and try again.",
     "instructions": {
       "title": "How to get your RapidAPI Key:",
       "steps": {

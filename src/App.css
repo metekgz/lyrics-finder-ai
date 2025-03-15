@@ -193,3 +193,47 @@
   width: 24px;
   height: 24px;
 }
+
+.token-form {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem auto;
+  max-width: 500px;
+  padding: 0 1rem;
+}
+
+.token-input {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+.token-input:focus {
+  outline: none;
+  border-color: #646cff;
+}
+
+.token-submit {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  background-color: #646cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.token-submit:hover {
+  background-color: #535bf2;
+}
+
+.token-submit:disabled {
+  background-color: #93959f;
+  cursor: not-allowed;
+}

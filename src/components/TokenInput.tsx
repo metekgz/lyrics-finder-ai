@@ -6,16 +6,54 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 export const TokenInput = () => {
   const [inputToken, setInputToken] = useState('');
   const [error, setError] = useState('');
+  const [isValidating, setIsValidating] = useState(false);
   const { setToken } = useToken();
   const { t } = useTranslation();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateToken = async (token: string) => {
+    try {
+      const response = await fetch('https://genius-song-lyrics1.p.rapidapi.com/search?q=test&per_page=1', {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': token,
+          'X-RapidAPI-Host': 'genius-song-lyrics1.p.rapidapi.com'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error('Invalid token');
+      }
+
+      const data = await response.json();
+      return data.hits !== undefined;
+    } catch (err) {
+      return false;
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError('');
+    
     if (!inputToken.trim()) {
       setError(t('token.error'));
       return;
     }
-    setToken(inputToken.trim());
+
+    setIsValidating(true);
+    try {
+      const isValid = await validateToken(inputToken.trim());
+      if (!isValid) {
+        setError(t('token.invalid'));
+        setIsValidating(false);
+        return;
+      }
+      setToken(inputToken.trim());
+    } catch (err) {
+      setError(t('token.invalid'));
+    } finally {
+      setIsValidating(false);
+    }
   };
 
   return (
@@ -58,8 +96,12 @@ export const TokenInput = () => {
           className="token-input"
           required
         />
-        <button type="submit" className="token-submit">
-          {t('token.submit')}
+        <button 
+          type="submit" 
+          className="token-submit"
+          disabled={isValidating}
+        >
+          {isValidating ? t('token.validating') : t('token.submit')}
         </button>
       </form>
       {error && <p className="error-message">{error}</p>}
