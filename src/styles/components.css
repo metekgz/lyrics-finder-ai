@@ -97,9 +97,7 @@
   margin-top: 1rem;
 }
 
-.youtube-button,
-.spotify-button,
-.google-button {
+.icon-button {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -114,30 +112,21 @@
   flex-shrink: 0;
 }
 
-.youtube-button {
-  padding: 7px;
-}
-
-.spotify-button,
-.google-button {
-  padding: 6px;
-}
-
-.youtube-button svg {
-  transform: translateY(-1px);
-}
-
-.youtube-button:hover,
-.spotify-button:hover,
-.google-button:hover {
+.icon-button:hover {
   transform: scale(1.1);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.youtube-button svg,
-.spotify-button svg,
-.google-button svg {
+.icon-button svg {
   width: 100%;
   height: 100%;
   display: block;
+}
+
+.icon-button.youtube {
+  padding: 7px;
+}
+
+.icon-button.youtube svg {
+  transform: translateY(-1px);
 } 

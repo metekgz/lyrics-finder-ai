@@ -24,7 +24,7 @@ export const SongCard = ({ song }: SongCardProps) => {
             href={song.youtubeSearchUrl} 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="youtube-button"
+            className="icon-button youtube"
             title="Search on YouTube"
           >
             <YouTubeIcon />
@@ -33,7 +33,7 @@ export const SongCard = ({ song }: SongCardProps) => {
             href={song.spotifySearchUrl} 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="spotify-button"
+            className="icon-button spotify"
             title="Search on Spotify"
           >
             <SpotifyIcon />
@@ -42,7 +42,7 @@ export const SongCard = ({ song }: SongCardProps) => {
             href={googleSearchUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="google-button"
+            className="icon-button google"
             title="Search on Google"
           >
             <GoogleIcon />
