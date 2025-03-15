@@ -1,31 +1,55 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
 
 interface TokenContextType {
-  token: string | null;
-  setToken: (token: string) => void;
-  clearToken: () => void;
+  geniusToken: string | null;
+  youtubeToken: string | null;
+  setGeniusToken: (token: string) => void;
+  setYoutubeToken: (token: string) => void;
+  clearGeniusToken: () => void;
+  clearYoutubeToken: () => void;
 }
 
 const TokenContext = createContext<TokenContextType | undefined>(undefined);
 
 export function TokenProvider({ children }: { children: ReactNode }) {
-  const [token, setTokenState] = useState<string | null>(() => {
+  const [geniusToken, setGeniusTokenState] = useState<string | null>(() => {
     // Check localStorage for existing token
     return localStorage.getItem('genius_api_token');
   });
 
-  const setToken = (newToken: string) => {
+  const [youtubeToken, setYoutubeTokenState] = useState<string | null>(() => {
+    return localStorage.getItem('youtube_api_token');
+  });
+
+  const setGeniusToken = (newToken: string) => {
     localStorage.setItem('genius_api_token', newToken);
-    setTokenState(newToken);
+    setGeniusTokenState(newToken);
   };
 
-  const clearToken = () => {
+  const setYoutubeToken = (newToken: string) => {
+    localStorage.setItem('youtube_api_token', newToken);
+    setYoutubeTokenState(newToken);
+  };
+
+  const clearGeniusToken = () => {
     localStorage.removeItem('genius_api_token');
-    setTokenState(null);
+    setGeniusTokenState(null);
+  };
+
+  const clearYoutubeToken = () => {
+    localStorage.removeItem('youtube_api_token');
+    setYoutubeTokenState(null);
   };
 
   return (
-    <TokenContext.Provider value={{ token, setToken, clearToken }}>
+    <TokenContext.Provider value={{ 
+      geniusToken, 
+      youtubeToken, 
+      setGeniusToken, 
+      setYoutubeToken, 
+      clearGeniusToken,
+      clearYoutubeToken 
+    }}>
       {children}
     </TokenContext.Provider>
   );

@@ -1,7 +1,7 @@
 {
   "app": {
     "title": "Şarkı Sözü Arama",
-    "changeApiKey": "API Anahtarını Değiştir"
+    "changeApiKey": "API Anahtarlarını Değiştir"
   },
   "search": {
     "placeholder": "Şarkı adı veya sözleri girin...",
@@ -14,28 +14,45 @@
   },
   "song": {
     "searchOn": "{{platform}} üzerinde ara",
-    "by": "sanatçı"
+    "by": "sanatçı",
+    "play": "YouTube'da Oynat"
   },
   "token": {
-    "title": "Genius API Anahtarınızı Girin",
-    "description": "Şarkı sözlerini aramaya başlamak için Genius API anahtarınızı girin",
-    "placeholder": "API Anahtarınız",
-    "submit": "Anahtarı Kaydet",
-    "validating": "Doğrulanıyor...",
     "error": "Lütfen geçerli bir anahtar girin",
+    "validating": "Doğrulanıyor...",
+    "submit": "Anahtarı Kaydet",
     "invalid": "Geçersiz API anahtarı. Lütfen kontrol edip tekrar deneyin.",
-    "instructions": {
-      "title": "RapidAPI Anahtarı Nasıl Alınır:",
-      "steps": {
-        "0": "Genius Lyrics API sayfasını RapidAPI'de ziyaret edin",
-        "1": "RapidAPI hesabınız yoksa kaydolun veya giriş yapın",
-        "2": "API'ye abone olun (ücretsiz paket mevcuttur)",
-        "3": "Abone olduktan sonra:",
-        "4": "\"Endpoints\" sekmesine tıklayın",
-        "5": "Kod örneklerinde \"X-RapidAPI-Key\"i bulun",
-        "6": "Benzersiz API anahtarınızı kopyalayın"
-      },
-      "note": "Not: Ücretsiz paket, test ve kişisel kullanım için yeterli olan günlük 100 istek içerir."
+    "genius": {
+      "title": "Genius API Anahtarınızı Girin",
+      "placeholder": "Genius API Anahtarınız",
+      "instructions": {
+        "title": "RapidAPI Anahtarı Nasıl Alınır:",
+        "steps": {
+          "0": "Genius Lyrics API sayfasını RapidAPI'de ziyaret edin",
+          "1": "RapidAPI hesabınız yoksa kaydolun veya giriş yapın",
+          "2": "API'ye abone olun (ücretsiz paket mevcuttur)",
+          "3": "Abone olduktan sonra:",
+          "4": "\"Endpoints\" sekmesine tıklayın",
+          "5": "Kod örneklerinde \"X-RapidAPI-Key\"i bulun",
+          "6": "Benzersiz API anahtarınızı kopyalayın"
+        },
+        "note": "Not: Ücretsiz paket, test ve kişisel kullanım için yeterli olan günlük 100 istek içerir."
+      }
+    },
+    "youtube": {
+      "title": "YouTube API Anahtarınızı Girin",
+      "placeholder": "YouTube API Anahtarınız",
+      "instructions": {
+        "title": "YouTube API Anahtarı Nasıl Alınır:",
+        "steps": {
+          "0": "Google Cloud Console'u ziyaret edin",
+          "1": "Yeni bir proje oluşturun veya mevcut bir projeyi seçin",
+          "2": "YouTube Data API v3'ü etkinleştirin",
+          "3": "Kimlik Bilgileri'ne gidin ve bir API anahtarı oluşturun",
+          "4": "API anahtarınızı kopyalayın"
+        },
+        "note": "Not: Ücretsiz paket, normal kullanım için yeterli olan günlük 10.000 istek içerir."
+      }
     }
   }
 } 

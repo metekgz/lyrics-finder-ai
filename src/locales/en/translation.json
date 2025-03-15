@@ -1,7 +1,7 @@
 {
   "app": {
     "title": "Lyrics Search",
-    "changeApiKey": "Change API Key"
+    "changeApiKey": "Change API Keys"
   },
   "search": {
     "placeholder": "Enter song name or lyrics...",
@@ -14,28 +14,45 @@
   },
   "song": {
     "searchOn": "Search on {{platform}}",
-    "by": "by"
+    "by": "by",
+    "play": "Play on YouTube"
   },
   "token": {
-    "title": "Enter Your Genius API Token",
-    "description": "Please enter your Genius API token to start searching for lyrics",
-    "placeholder": "Your API Token",
-    "submit": "Save Token",
-    "validating": "Validating...",
     "error": "Please enter a valid token",
+    "validating": "Validating...",
+    "submit": "Save Token",
     "invalid": "Invalid API token. Please check and try again.",
-    "instructions": {
-      "title": "How to get your RapidAPI Key:",
-      "steps": {
-        "0": "Visit Genius Lyrics API on RapidAPI",
-        "1": "Sign in or create a RapidAPI account if you don't have one",
-        "2": "Subscribe to the API (there's a free tier available)",
-        "3": "Once subscribed:",
-        "4": "Click on \"Endpoints\" tab",
-        "5": "Look for the \"X-RapidAPI-Key\" in the code examples",
-        "6": "Copy your unique API key"
-      },
-      "note": "Note: The free tier includes 100 requests per day which is sufficient for testing and personal use."
+    "genius": {
+      "title": "Enter Your Genius API Token",
+      "placeholder": "Your Genius API Token",
+      "instructions": {
+        "title": "How to get your RapidAPI Key:",
+        "steps": {
+          "0": "Visit Genius Lyrics API on RapidAPI",
+          "1": "Sign in or create a RapidAPI account if you don't have one",
+          "2": "Subscribe to the API (there's a free tier available)",
+          "3": "Once subscribed:",
+          "4": "Click on \"Endpoints\" tab",
+          "5": "Look for the \"X-RapidAPI-Key\" in the code examples",
+          "6": "Copy your unique API key"
+        },
+        "note": "Note: The free tier includes 100 requests per day which is sufficient for testing and personal use."
+      }
+    },
+    "youtube": {
+      "title": "Enter Your YouTube API Token",
+      "placeholder": "Your YouTube API Token",
+      "instructions": {
+        "title": "How to get your YouTube API Key:",
+        "steps": {
+          "0": "Visit Google Cloud Console",
+          "1": "Create a new project or select an existing one",
+          "2": "Enable the YouTube Data API v3",
+          "3": "Go to Credentials and create an API key",
+          "4": "Copy your API key"
+        },
+        "note": "Note: The free tier includes 10,000 requests per day which is sufficient for normal use."
+      }
     }
   }
 } 
