@@ -312,9 +312,11 @@
 
 .results-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--spacing-lg);
   padding: var(--spacing-md);
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* Card Components */
