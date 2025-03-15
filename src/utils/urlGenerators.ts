@@ -1,7 +1,7 @@
 import { ApiUrls } from '../constants/urls';
 
 export function generateMusicServiceUrl(
-  service: 'youtube' | 'spotify',
+  service: 'youtube' | 'spotify' | 'google',
   title: string,
   artist: string
 ): string {
@@ -12,7 +12,9 @@ export function generateMusicServiceUrl(
       return `${ApiUrls.YOUTUBE_SEARCH}?search_query=${encodeURIComponent(searchQuery)}`;
     case 'spotify':
       return `${ApiUrls.SPOTIFY_SEARCH}/${encodeURIComponent(searchQuery)}`;
+    case 'google':
+      return `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
     default:
-      throw new Error('Unsupported music service');
+      return '';
   }
 } 

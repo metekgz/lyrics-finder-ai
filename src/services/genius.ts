@@ -8,7 +8,8 @@ export async function searchSongs(query: string): Promise<GeniusSearchResult[]> 
     
     return data.hits.map(({ result }) => ({
       title: result.title,
-      artist: result.artist_names,
+      artist_names: result.artist_names,
+      song_art_image_url: result.header_image_thumbnail_url || 'https://place-hold.it/300x300',
       lyrics_snippet: result.lyrics_snippet || "No lyrics preview available",
       url: result.url,
       thumbnail: result.header_image_thumbnail_url || 'https://place-hold.it/300x300',
