@@ -3,9 +3,9 @@ import { fetchFromGenius } from './api';
 import { generateSearchUrl } from '../utils/urlGenerators';
 import { DEFAULT_IMAGE } from '../constants/images';
 
-export async function searchSongs(query: string): Promise<GeniusSearchResult[]> {
+export async function searchSongs(query: string, token: string): Promise<GeniusSearchResult[]> {
   try {
-    const data = await fetchFromGenius(query);
+    const data = await fetchFromGenius(query, token);
     
     return data.hits.map(({ result }) => {
       const thumbnail = result.header_image_thumbnail_url || DEFAULT_IMAGE;

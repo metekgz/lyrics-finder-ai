@@ -4,6 +4,8 @@ import { searchSongs } from './services/genius'
 import { GeniusSearchResult } from './types/genius'
 import { SearchBar } from './components/Search/SearchBar'
 import { SongCard } from './components/Card/SongCard'
+import { TokenInput } from './components/TokenInput'
+import { useToken } from './context/TokenContext'
 import './styles/layout.css'
 import './styles/components.css'
 
@@ -12,21 +14,30 @@ function App() {
   const [results, setResults] = useState<GeniusSearchResult[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const { token } = useToken();
 
   const handleSearch = async () => {
-    if (!searchQuery.trim()) return
+    if (!searchQuery.trim() || !token) return;
     
     setIsLoading(true)
     setError(null)
     try {
-      const searchResults = await searchSongs(searchQuery)
+      const searchResults = await searchSongs(searchQuery, token)
       setResults(searchResults)
     } catch (error) {
-      setError('Search failed. Please try again.')
+      if (error instanceof Error) {
+        setError(error.message)
+      } else {
+        setError('Search failed. Please try again.')
+      }
       console.error('Search error:', error)
     } finally {
       setIsLoading(false)
     }
+  }
+
+  if (!token) {
+    return <TokenInput />;
   }
 
   return (

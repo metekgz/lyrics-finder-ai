@@ -15,6 +15,114 @@
   --shadow-lg: 0 8px 12px -1px rgba(0, 0, 0, 0.15);
 }
 
+/* Token Input */
+.token-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: var(--spacing-lg);
+  background: white;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.token-container h2 {
+  margin: 0 0 var(--spacing-md);
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.token-instructions {
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.token-instructions h3 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.1rem;
+}
+
+.token-instructions ol {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.token-instructions li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.token-instructions ul {
+  margin: var(--spacing-sm) 0;
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+
+.token-instructions ul li {
+  margin-bottom: calc(var(--spacing-sm) / 2);
+  color: var(--text-secondary);
+}
+
+.token-instructions a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.token-instructions a:hover {
+  text-decoration: underline;
+}
+
+.token-instructions strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.token-note {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: rgba(100, 108, 255, 0.08);
+  border-left: 3px solid var(--primary-color);
+  border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.token-form {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-direction: column;
+  margin-top: var(--spacing-lg);
+}
+
+.token-input {
+  padding: 0.8rem var(--spacing-md);
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: var(--border-radius-sm);
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+.token-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.token-submit {
+  padding: 0.8rem var(--spacing-lg);
+  font-size: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.token-submit:hover {
+  background-color: var(--primary-hover-color);
+}
+
 /* Search Components */
 .search-container {
   margin: var(--spacing-lg) 0;

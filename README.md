@@ -1,28 +1,27 @@
 # Lyrics Finder AI
 
-A modern React application that uses artificial intelligence to help users find songs by searching through lyrics or song titles. Powered by RapidAPI's Genius API and built with React + TypeScript.
+A modern web application to search for song lyrics using the Genius API through RapidAPI.
+
+## Technologies Used
+
+- React
+- TypeScript
+- Vite
+- RapidAPI (Genius Lyrics API)
 
 ## Features
 
-- AI-powered lyrics search
-- Real-time search results
-- Lyrics previews with smart matching
-- Song cover art display
-- Modern and user-friendly interface
+- Search for songs and lyrics
+- View song details and album art
+- Direct links to YouTube, Spotify, and Google searches
+- Modern and responsive UI
+- Secure API key management
 
-## Technologies
-
-- React 18
-- TypeScript
-- Vite
-- RapidAPI (Genius API)
-- AI-powered search algorithms
-
-## Installation
+## Setup
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/[your-username]/lyrics-finder-ai.git
+git clone [your-repo-url]
 cd lyrics-finder-ai
 ```
 
@@ -31,17 +30,16 @@ cd lyrics-finder-ai
 npm install
 ```
 
-3. Copy the environment file:
+3. Create a `.env` file in the root directory:
 ```bash
-cp .env.example .env
+VITE_RAPID_API_KEY=your_api_key_here
 ```
 
-4. Get your RapidAPI key:
-   - Sign up at [RapidAPI](https://rapidapi.com/auth/sign-up) (free)
-   - Go to [Genius API page](https://rapidapi.com/Glavier/api/genius-song-lyrics1/)
-   - Click "Subscribe to Test"
-   - Select the "Basic" (free) plan
-   - Replace the `VITE_RAPID_API_KEY` value in your `.env` file with your API key
+4. Get your RapidAPI Key:
+- Visit Genius
+- Sign up/Login to RapidAPI
+- Subscribe to the API (free tier available)
+- Copy your API key from the "Endpoints" section
 
 5. Start the development server:
 ```bash
