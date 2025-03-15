@@ -1,20 +1,25 @@
 import { GeniusSearchResult } from '../types/genius';
 import { fetchFromGenius } from './api';
-import { generateMusicServiceUrl } from '../utils/urlGenerators';
+import { generateSearchUrl } from '../utils/urlGenerators';
+import { DEFAULT_IMAGE } from '../constants/images';
 
 export async function searchSongs(query: string): Promise<GeniusSearchResult[]> {
   try {
     const data = await fetchFromGenius(query);
     
-    return data.hits.map(({ result }) => ({
-      title: result.title,
-      artist_names: result.artist_names,
-      song_art_image_url: result.header_image_thumbnail_url || 'https://place-hold.it/300x300',
-      url: result.url,
-      thumbnail: result.header_image_thumbnail_url || 'https://place-hold.it/300x300',
-      youtubeSearchUrl: generateMusicServiceUrl('youtube', result.title, result.artist_names),
-      spotifySearchUrl: generateMusicServiceUrl('spotify', result.title, result.artist_names)
-    }));
+    return data.hits.map(({ result }) => {
+      const thumbnail = result.header_image_thumbnail_url || DEFAULT_IMAGE;
+      
+      return {
+        title: result.title,
+        artist_names: result.artist_names,
+        song_art_image_url: thumbnail,
+        url: result.url,
+        thumbnail,
+        youtubeSearchUrl: generateSearchUrl('youtube', result.title, result.artist_names),
+        spotifySearchUrl: generateSearchUrl('spotify', result.title, result.artist_names)
+      };
+    });
   } catch (error) {
     console.error('API Error:', error);
     throw error;

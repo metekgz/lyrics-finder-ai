@@ -2,13 +2,14 @@ import { GeniusSearchResult } from '../../types/genius';
 import { YouTubeIcon } from '../icons/YouTubeIcon';
 import { SpotifyIcon } from '../icons/SpotifyIcon';
 import { GoogleIcon } from '../icons/GoogleIcon';
+import { generateSearchUrl } from '../../utils/urlGenerators';
 
 interface SongCardProps {
   song: GeniusSearchResult;
 }
 
 export const SongCard = ({ song }: SongCardProps) => {
-  const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(`${song.title} ${song.artist_names}`)}`;
+  const googleSearchUrl = generateSearchUrl('google', song.title, song.artist_names);
 
   return (
     <div className="result-card">

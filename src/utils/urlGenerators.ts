@@ -1,20 +1,16 @@
-import { ApiUrls } from '../constants/urls';
+type ServiceType = 'youtube' | 'spotify' | 'google';
 
-export function generateMusicServiceUrl(
-  service: 'youtube' | 'spotify' | 'google',
-  title: string,
-  artist: string
-): string {
-  const searchQuery = `${title} ${artist}`;
+export function generateSearchUrl(service: ServiceType, title: string, artist: string): string {
+  const query = encodeURIComponent(`${title} ${artist}`);
   
   switch (service) {
     case 'youtube':
-      return `${ApiUrls.YOUTUBE_SEARCH}?search_query=${encodeURIComponent(searchQuery)}`;
+      return `https://www.youtube.com/results?search_query=${query}`;
     case 'spotify':
-      return `${ApiUrls.SPOTIFY_SEARCH}/${encodeURIComponent(searchQuery)}`;
+      return `https://open.spotify.com/search/${query}`;
     case 'google':
-      return `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
+      return `https://www.google.com/search?q=${query}`;
     default:
-      return '';
+      throw new Error(`Unsupported service: ${service}`);
   }
 } 

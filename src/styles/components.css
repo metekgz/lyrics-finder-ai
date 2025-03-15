@@ -1,16 +1,33 @@
+:root {
+  --primary-color: #646cff;
+  --primary-hover-color: #535bf2;
+  --disabled-color: #93959f;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666;
+  --border-radius-sm: 8px;
+  --border-radius-lg: 12px;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --icon-size: 32px;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 12px -1px rgba(0, 0, 0, 0.15);
+}
+
 /* Search Components */
 .search-container {
-  margin: 2rem 0;
+  margin: var(--spacing-lg) 0;
   display: flex;
-  gap: 1rem;
+  gap: var(--spacing-md);
   justify-content: center;
 }
 
 .search-input {
-  padding: 0.8rem 1rem;
+  padding: 0.8rem var(--spacing-md);
   font-size: 1rem;
   border: 2px solid #ddd;
-  border-radius: 8px;
+  border-radius: var(--border-radius-sm);
   width: 100%;
   max-width: 500px;
   transition: border-color 0.3s ease;
@@ -18,41 +35,41 @@
 
 .search-input:focus {
   outline: none;
-  border-color: #646cff;
+  border-color: var(--primary-color);
 }
 
 .search-button {
-  padding: 0.8rem 2rem;
+  padding: 0.8rem var(--spacing-lg);
   font-size: 1rem;
-  background-color: #646cff;
+  background-color: var(--primary-color);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--border-radius-sm);
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .search-button:hover {
-  background-color: #535bf2;
+  background-color: var(--primary-hover-color);
 }
 
 .search-button:disabled {
-  background-color: #93959f;
+  background-color: var(--disabled-color);
   cursor: not-allowed;
 }
 
 /* Card Components */
 .result-card {
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .result-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 12px -1px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-lg);
 }
 
 .song-thumbnail {
@@ -62,27 +79,27 @@
 }
 
 .song-info {
-  padding: 1rem;
+  padding: var(--spacing-md);
 }
 
 .song-info h3 {
   margin: 0;
   font-size: 1.2rem;
-  color: #1a1a1a;
+  color: var(--text-primary);
 }
 
 .artist {
-  margin: 0.5rem 0;
-  color: #666;
+  margin: var(--spacing-sm) 0;
+  color: var(--text-secondary);
   font-size: 0.9rem;
 }
 
 .music-buttons {
   display: flex;
-  gap: 1rem;
+  gap: var(--spacing-md);
   justify-content: center;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: var(--spacing-md);
 }
 
 .icon-button {
@@ -90,19 +107,19 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: var(--icon-size);
+  height: var(--icon-size);
   padding: 6px;
   border-radius: 50%;
   background-color: white;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
   flex-shrink: 0;
 }
 
 .icon-button:hover {
   transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-md);
 }
 
 .icon-button svg {
