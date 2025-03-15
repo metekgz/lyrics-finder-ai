@@ -18,16 +18,6 @@ export const TokenInput = () => {
     setToken(inputToken.trim());
   };
 
-  const steps = [
-    "Visit Genius Lyrics API on RapidAPI",
-    "Sign in or create a RapidAPI account if you don't have one",
-    "Subscribe to the API (there's a free tier available)",
-    "Once subscribed:",
-    "Click on \"Endpoints\" tab",
-    "Look for the \"X-RapidAPI-Key\" in the code examples",
-    "Copy your unique API key"
-  ];
-
   return (
     <div className="token-container">
       <div className="buttons-container">
@@ -37,7 +27,7 @@ export const TokenInput = () => {
       <div className="token-instructions">
         <h3>{t('token.instructions.title')}</h3>
         <ol>
-          {steps.map((_, index) => (
+          {Array.from({ length: 7 }, (_, index) => (
             <li key={index}>
               {index === 0 ? (
                 <span>
