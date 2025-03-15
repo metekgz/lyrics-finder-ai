@@ -6,6 +6,12 @@ export interface GeniusSearchResult {
   lyrics_snippet: string;
   url: string;
   thumbnail: string;
+  youtubeSearchUrl: string;
+}
+
+function generateYoutubeSearchUrl(title: string, artist: string): string {
+  const searchQuery = `${title} ${artist}`.replace(/[^\w\s]/gi, '');
+  return `https://www.youtube.com/results?search_query=${encodeURIComponent(searchQuery)}`;
 }
 
 export async function searchSongs(query: string): Promise<GeniusSearchResult[]> {
@@ -29,7 +35,8 @@ export async function searchSongs(query: string): Promise<GeniusSearchResult[]> 
       artist: hit.result.artist_names,
       lyrics_snippet: hit.result.lyrics_snippet || "No lyrics preview available",
       url: hit.result.url,
-      thumbnail: hit.result.header_image_thumbnail_url || 'https://place-hold.it/300x300'
+      thumbnail: hit.result.header_image_thumbnail_url || 'https://place-hold.it/300x300',
+      youtubeSearchUrl: generateYoutubeSearchUrl(hit.result.title, hit.result.artist_names)
     }));
   } catch (error) {
     console.error('API Error:', error);
