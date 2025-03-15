@@ -5,4 +5,5 @@ export interface GeniusSearchResult {
   url: string;
   thumbnail: string;
   youtubeSearchUrl: string;
+  spotifySearchUrl: string;
 } 

@@ -1,6 +1,6 @@
-
 import { GeniusSearchResult } from '../../types/genius';
 import { YouTubeIcon } from '../icons/YouTubeIcon';
+import { SpotifyIcon } from '../icons/SpotifyIcon';
 
 interface SongCardProps {
   song: GeniusSearchResult;
@@ -14,15 +14,26 @@ export const SongCard = ({ song }: SongCardProps) => {
         <h3>{song.title}</h3>
         <p className="artist">{song.artist}</p>
         <p className="lyrics-snippet">{song.lyrics_snippet}</p>
-        <a 
-          href={song.youtubeSearchUrl} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="youtube-button"
-          title="Search on YouTube"
-        >
-          <YouTubeIcon />
-        </a>
+        <div className="music-buttons">
+          <a 
+            href={song.youtubeSearchUrl} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="youtube-button"
+            title="Search on YouTube"
+          >
+            <YouTubeIcon />
+          </a>
+          <a 
+            href={song.spotifySearchUrl} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="spotify-button"
+            title="Search on Spotify"
+          >
+            <SpotifyIcon />
+          </a>
+        </div>
       </div>
     </div>
   );
