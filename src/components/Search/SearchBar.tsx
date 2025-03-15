@@ -1,4 +1,6 @@
 import { useTranslation } from 'react-i18next';
+import { SearchIcon } from '../icons/SearchIcon';
+import { LoadingSpinner } from '../icons/LoadingSpinner';
 
 interface SearchBarProps {
   searchQuery: string;
@@ -21,17 +23,27 @@ export const SearchBar = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="search-form">
-      <input
-        type="text"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder={t('search.placeholder')}
-        className="search-input"
-      />
-      <button type="submit" className="search-button" disabled={isLoading}>
-        {isLoading ? '...' : t('search.button')}
-      </button>
-    </form>
+    <div className="search-section">
+      <form onSubmit={handleSubmit} className="search-form">
+        <div className="search-input-wrapper">
+          <SearchIcon />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder={t('search.placeholder')}
+            className="search-input"
+            disabled={isLoading}
+          />
+        </div>
+        <button 
+          type="submit" 
+          className="search-button" 
+          disabled={isLoading}
+        >
+          {isLoading ? <LoadingSpinner /> : t('search.button')}
+        </button>
+      </form>
+    </div>
   );
 }; 

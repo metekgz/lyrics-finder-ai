@@ -8,7 +8,9 @@
     "button": "Ara",
     "results": "Arama Sonuçları",
     "noResults": "Sonuç bulunamadı",
-    "error": "Arama başarısız oldu. Lütfen tekrar deneyin."
+    "error": "Arama başarısız oldu. Lütfen tekrar deneyin.",
+    "resultCount_one": "{{count}} sonuç",
+    "resultCount_other": "{{count}} sonuç"
   },
   "song": {
     "searchOn": "{{platform}} üzerinde ara",
@@ -19,7 +21,9 @@
     "description": "Şarkı sözlerini aramaya başlamak için Genius API anahtarınızı girin",
     "placeholder": "API Anahtarınız",
     "submit": "Anahtarı Kaydet",
+    "validating": "Doğrulanıyor...",
     "error": "Lütfen geçerli bir anahtar girin",
+    "invalid": "Geçersiz API anahtarı. Lütfen kontrol edip tekrar deneyin.",
     "instructions": {
       "title": "RapidAPI Anahtarı Nasıl Alınır:",
       "steps": {

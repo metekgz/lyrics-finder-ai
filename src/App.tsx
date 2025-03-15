@@ -16,6 +16,7 @@ function App() {
   const [results, setResults] = useState<GeniusSearchResult[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [hasSearched, setHasSearched] = useState(false)
   const { token, clearToken } = useToken()
   const { t } = useTranslation()
 
@@ -24,6 +25,7 @@ function App() {
     
     setIsLoading(true)
     setError(null)
+    setHasSearched(true)
     try {
       const searchResults = await searchSongs(searchQuery, token)
       setResults(searchResults)
@@ -55,33 +57,47 @@ function App() {
           {t('app.changeApiKey')}
         </button>
       </div>
+      
       <header className="app-header">
         <h1>{t('app.title')}</h1>
       </header>
-      
-      <SearchBar 
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        handleSearch={handleSearch}
-        isLoading={isLoading}
-      />
 
-      {error && (
-        <div className="error-message">
-          {error}
-        </div>
-      )}
+      <main>
+        <SearchBar 
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          handleSearch={handleSearch}
+          isLoading={isLoading}
+        />
 
-      {results.length > 0 && (
-        <div className="results-container">
-          <h2>{t('search.results')}</h2>
-          <div className="results-grid">
-            {results.map((song, index) => (
-              <SongCard key={index} song={song} />
-            ))}
+        {error && (
+          <div className="error-message">
+            {error}
           </div>
-        </div>
-      )}
+        )}
+
+        {results.length > 0 && (
+          <section className="results-section">
+            <div className="results-header">
+              <h2>{t('search.results')}</h2>
+              <span className="results-count">
+                {t('search.resultCount', { count: results.length })}
+              </span>
+            </div>
+            <div className="results-grid">
+              {results.map((song, index) => (
+                <SongCard key={song.url || index} song={song} />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {!isLoading && hasSearched && results.length === 0 && !error && (
+          <div className="no-results">
+            <p>{t('search.noResults')}</p>
+          </div>
+        )}
+      </main>
     </div>
   )
 }

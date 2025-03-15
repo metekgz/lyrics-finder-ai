@@ -8,7 +8,9 @@
     "button": "Search",
     "results": "Search Results",
     "noResults": "No results found",
-    "error": "Search failed. Please try again."
+    "error": "Search failed. Please try again.",
+    "resultCount_one": "{{count}} result",
+    "resultCount_other": "{{count}} results"
   },
   "song": {
     "searchOn": "Search on {{platform}}",
