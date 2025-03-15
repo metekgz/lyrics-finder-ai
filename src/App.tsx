@@ -14,7 +14,7 @@ function App() {
   const [results, setResults] = useState<GeniusSearchResult[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const { token } = useToken();
+  const { token, clearToken } = useToken();
 
   const handleSearch = async () => {
     if (!searchQuery.trim() || !token) return;
@@ -42,7 +42,16 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Lyrics Search</h1>
+      <header className="app-header">
+        <h1>Lyrics Search</h1>
+        <button 
+          onClick={clearToken}
+          className="logout-button"
+          title="Change API Key"
+        >
+          Change API Key
+        </button>
+      </header>
       
       <SearchBar 
         searchQuery={searchQuery}
