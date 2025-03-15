@@ -16,9 +16,6 @@ export const SongCard = ({ song }: SongCardProps) => {
       <div className="song-info">
         <h3>{song.title}</h3>
         <p className="artist">{song.artist_names}</p>
-        {song.lyrics_snippet && (
-          <p className="lyrics-snippet">{song.lyrics_snippet}</p>
-        )}
         <div className="music-buttons">
           <a 
             href={song.youtubeSearchUrl} 
