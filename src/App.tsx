@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import './App.css'
 import { searchSongs } from './services/genius'
 import { GeniusSearchResult } from './types/genius'
@@ -6,6 +7,7 @@ import { SearchBar } from './components/Search/SearchBar'
 import { SongCard } from './components/Card/SongCard'
 import { TokenInput } from './components/TokenInput'
 import { useToken } from './context/TokenContext'
+import { LanguageSwitcher } from './components/LanguageSwitcher'
 import './styles/layout.css'
 import './styles/components.css'
 
@@ -14,7 +16,8 @@ function App() {
   const [results, setResults] = useState<GeniusSearchResult[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const { token, clearToken } = useToken();
+  const { token, clearToken } = useToken()
+  const { t } = useTranslation()
 
   const handleSearch = async () => {
     if (!searchQuery.trim() || !token) return;
@@ -28,7 +31,7 @@ function App() {
       if (error instanceof Error) {
         setError(error.message)
       } else {
-        setError('Search failed. Please try again.')
+        setError(t('search.error'))
       }
       console.error('Search error:', error)
     } finally {
@@ -42,15 +45,18 @@ function App() {
 
   return (
     <div className="container">
-      <header className="app-header">
-        <h1>Lyrics Search</h1>
+      <div className="buttons-container">
+        <LanguageSwitcher />
         <button 
           onClick={clearToken}
           className="logout-button"
-          title="Change API Key"
+          title={t('app.changeApiKey')}
         >
-          Change API Key
+          {t('app.changeApiKey')}
         </button>
+      </div>
+      <header className="app-header">
+        <h1>{t('app.title')}</h1>
       </header>
       
       <SearchBar 
@@ -68,7 +74,7 @@ function App() {
 
       {results.length > 0 && (
         <div className="results-container">
-          <h2>Search Results</h2>
+          <h2>{t('search.results')}</h2>
           <div className="results-grid">
             {results.map((song, index) => (
               <SongCard key={index} song={song} />

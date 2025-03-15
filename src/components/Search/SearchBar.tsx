@@ -1,35 +1,37 @@
+import { useTranslation } from 'react-i18next';
+
 interface SearchBarProps {
   searchQuery: string;
   setSearchQuery: (query: string) => void;
-  handleSearch: () => Promise<void>;
+  handleSearch: () => void;
   isLoading: boolean;
 }
 
-export const SearchBar = ({ searchQuery, setSearchQuery, handleSearch, isLoading }: SearchBarProps) => {
-  const handleKeyPress = async (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      await handleSearch();
-    }
+export const SearchBar = ({
+  searchQuery,
+  setSearchQuery,
+  handleSearch,
+  isLoading
+}: SearchBarProps) => {
+  const { t } = useTranslation();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleSearch();
   };
 
   return (
-    <div className="search-container">
+    <form onSubmit={handleSubmit} className="search-form">
       <input
         type="text"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        onKeyPress={handleKeyPress}
-        placeholder="Enter lyrics or song title..."
+        placeholder={t('search.placeholder')}
         className="search-input"
       />
-      <button 
-        onClick={handleSearch}
-        disabled={isLoading}
-        className="search-button"
-      >
-        {isLoading ? 'Searching...' : 'Search'}
+      <button type="submit" className="search-button" disabled={isLoading}>
+        {isLoading ? '...' : t('search.button')}
       </button>
-    </div>
+    </form>
   );
 }; 

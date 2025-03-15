@@ -1,0 +1,37 @@
+{
+  "app": {
+    "title": "Lyrics Search",
+    "changeApiKey": "Change API Key"
+  },
+  "search": {
+    "placeholder": "Enter song name or lyrics...",
+    "button": "Search",
+    "results": "Search Results",
+    "noResults": "No results found",
+    "error": "Search failed. Please try again."
+  },
+  "song": {
+    "searchOn": "Search on {{platform}}",
+    "by": "by"
+  },
+  "token": {
+    "title": "Enter Your Genius API Token",
+    "description": "Please enter your Genius API token to start searching for lyrics",
+    "placeholder": "Your API Token",
+    "submit": "Save Token",
+    "error": "Please enter a valid token",
+    "instructions": {
+      "title": "How to get your RapidAPI Key:",
+      "steps": {
+        "0": "Visit Genius Lyrics API on RapidAPI",
+        "1": "Sign in or create a RapidAPI account if you don't have one",
+        "2": "Subscribe to the API (there's a free tier available)",
+        "3": "Once subscribed:",
+        "4": "Click on \"Endpoints\" tab",
+        "5": "Look for the \"X-RapidAPI-Key\" in the code examples",
+        "6": "Copy your unique API key"
+      },
+      "note": "Note: The free tier includes 100 requests per day which is sufficient for testing and personal use."
+    }
+  }
+} 

@@ -1,0 +1,37 @@
+{
+  "app": {
+    "title": "Şarkı Sözü Arama",
+    "changeApiKey": "API Anahtarını Değiştir"
+  },
+  "search": {
+    "placeholder": "Şarkı adı veya sözleri girin...",
+    "button": "Ara",
+    "results": "Arama Sonuçları",
+    "noResults": "Sonuç bulunamadı",
+    "error": "Arama başarısız oldu. Lütfen tekrar deneyin."
+  },
+  "song": {
+    "searchOn": "{{platform}} üzerinde ara",
+    "by": "sanatçı"
+  },
+  "token": {
+    "title": "Genius API Anahtarınızı Girin",
+    "description": "Şarkı sözlerini aramaya başlamak için Genius API anahtarınızı girin",
+    "placeholder": "API Anahtarınız",
+    "submit": "Anahtarı Kaydet",
+    "error": "Lütfen geçerli bir anahtar girin",
+    "instructions": {
+      "title": "RapidAPI Anahtarı Nasıl Alınır:",
+      "steps": {
+        "0": "Genius Lyrics API sayfasını RapidAPI'de ziyaret edin",
+        "1": "RapidAPI hesabınız yoksa kaydolun veya giriş yapın",
+        "2": "API'ye abone olun (ücretsiz paket mevcuttur)",
+        "3": "Abone olduktan sonra:",
+        "4": "\"Endpoints\" sekmesine tıklayın",
+        "5": "Kod örneklerinde \"X-RapidAPI-Key\"i bulun",
+        "6": "Benzersiz API anahtarınızı kopyalayın"
+      },
+      "note": "Not: Ücretsiz paket, test ve kişisel kullanım için yeterli olan günlük 100 istek içerir."
+    }
+  }
+} 

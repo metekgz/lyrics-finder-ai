@@ -26,10 +26,16 @@
   margin: 0;
 }
 
-.logout-button {
+.buttons-container {
   position: fixed;
   right: var(--spacing-lg);
   top: var(--spacing-md);
+  display: flex;
+  gap: var(--spacing-md);
+  z-index: 1000;
+}
+
+.logout-button {
   padding: 0.5rem var(--spacing-md);
   font-size: 0.9rem;
   color: var(--text-secondary);
@@ -38,11 +44,36 @@
   border-radius: var(--border-radius-sm);
   cursor: pointer;
   transition: all 0.3s ease;
-  z-index: 1000;
   box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logout-button:hover {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background-color: rgba(100, 108, 255, 0.08);
+  box-shadow: var(--shadow-md);
+}
+
+.language-button {
+  padding: 0.5rem var(--spacing-md);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  background-color: white;
+  border: 1px solid var(--text-secondary);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 45px;
+}
+
+.language-button:hover {
   color: var(--primary-color);
   border-color: var(--primary-color);
   background-color: rgba(100, 108, 255, 0.08);
@@ -158,11 +189,16 @@
 }
 
 /* Search Components */
-.search-container {
+.search-form {
   margin: var(--spacing-lg) 0;
   display: flex;
   gap: var(--spacing-md);
   justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .search-input {
@@ -171,7 +207,6 @@
   border: 2px solid #ddd;
   border-radius: var(--border-radius-sm);
   width: 100%;
-  max-width: 500px;
   transition: border-color 0.3s ease;
 }
 
@@ -276,4 +311,31 @@
 
 .icon-button.youtube svg {
   transform: translateY(-1px);
+}
+
+.language-switcher {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.lang-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+  background: #f0f0f0;
+}
+
+.lang-btn.active {
+  background: #007bff;
+  color: white;
+  border-color: #0056b3;
 } 
